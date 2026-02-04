@@ -10,7 +10,7 @@ class LocalStorage {
     return  _storage.write(key: "auth_token", value: token);
   }
   // Access the token 
-  Future<String ?> getToken()async{
+  Future<String?> getToken()async{
     return _storage.read(key: "auth_token");
   }
 
