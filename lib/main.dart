@@ -54,7 +54,8 @@ class _MainContentState extends State<MainContent> {
          borderRadius: BorderRadius.circular(15)
       ),
       padding: EdgeInsets.all(10),
-      child: Row(
+
+            child: Row(
         children: [
           
           Container(
