@@ -49,7 +49,11 @@ class _MainContentState extends State<MainContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      ba
+      decoration: BoxDecoration(
+         color: Colors.blue,
+         borderRadius: BorderRadius.circular(15)
+      ),
+      padding: EdgeInsets.all(10),
       child: Row(
         children: [
           
