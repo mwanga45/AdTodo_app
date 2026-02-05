@@ -14,7 +14,8 @@ void main() {
     ChangeNotifierProvider(
       create: (_) => todocontroller
     )
-  ]));
+  ], child:const MyApp() ,));
+  
 }
 
 class MyApp extends StatelessWidget {
