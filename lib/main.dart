@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_api/core/services/api_client.dart';
+import 'package:todo_api/core/services/app_wide.dart';
+import 'package:todo_api/core/services/local_storage.dart';
+import 'package:todo_api/src/controller/todo_controller.dart';
 
 void main() {
-  runApp(const MyApp());
+  final localstorage = LocalStorage();
+  final apiclient = Apiclient(localstorage);
+  final todolistserv = TodoListService( apiclient);
+  final todocontroller = TodoController(todolistserv);
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (_) => todocontroller
+    )
+  ]));
 }
 
 class MyApp extends StatelessWidget {
