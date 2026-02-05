@@ -17,7 +17,7 @@ class TodoListService {
        
   }
   Future<GenericResponse<List <Getresponse>>> createtodo() async{
-    final response  = await apiclient.dio.get("/create-todo");
+    final response  = await apiclient.dio.post("/create-todo");
 
     final apiResponse =  GenericResponse<List<Getresponse>>.fromJson(
       response.data, (data) => (data as List).map((e)=> Getresponse.fromJson(e as Map<String, dynamic>)).toList(),
