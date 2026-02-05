@@ -1,5 +1,6 @@
 import 'package:todo_api/core/services/api_client.dart';
 import 'package:todo_api/src/modal/generic_response.dart';
+import 'package:todo_api/src/modal/get_response.dart';
 
 
 class TodoListService {
@@ -7,19 +8,23 @@ class TodoListService {
 
   TodoListService(this.apiclient);
 
-  Future<List<GenericResponse>> fetchtodoinfo() async {
+  Future<GenericResponse<List<Getresponse>>> fetchtodoinfo() async {
     final response = await apiclient.dio.get("/getlist");
-    return (response.data as List).map((e) => GenericResponse.fromJson(e)).toList();
+    final apiResponse = GenericResponse<List<Getresponse>>.fromJson(
+      response.data , (data) => (data as List).map((e)=> Getresponse.fromJson(e as Map<String, dynamic>)).toList()
+    );
+    return apiResponse;
+       
   }
-  Future<List<GenericResponse>> createtodo() async{
+  Future<GenericResponse<List <Getresponse>>> createtodo() async{
     final response  = await apiclient.dio.get("/create-todo");
 
-    final apiResponse =  GenericResponse<List<
+    final apiResponse =  GenericResponse<List<Getresponse>>.fromJson(
+      response.data, (data) => (data as List).map((e)=> Getresponse.fromJson(e as Map<String, dynamic>)).toList(),
+    );
 
-
-
-
-
+    return apiResponse;
+    
     
   }
 }
