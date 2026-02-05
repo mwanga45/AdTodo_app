@@ -1,13 +1,13 @@
 class Getresponse {
-   final String message;
-   final bool success;
+   final String date;
+   final String title;
 
    Getresponse({
-    required this.message,
-    required this.success,
+    required this.title,
+    required this.date,
    });
 
    factory Getresponse.fromJson(Map<String, dynamic>json){
-    return Getresponse(message: json['message'], success: json['success']);
+    return Getresponse(date: json['date'], title: json['title']);
    }
 }
