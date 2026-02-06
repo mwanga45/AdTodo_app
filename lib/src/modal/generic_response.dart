@@ -1,3 +1,4 @@
+// handle full response from the backend 
 class GenericResponse<T> {
   final String  message;
   final bool    success;
@@ -11,7 +12,7 @@ class GenericResponse<T> {
     this.data,
     this.confirm
   });
-
+  
   factory GenericResponse.fromJson(Map<String, dynamic> json, T Function(dynamic) fromJsonT){
     return GenericResponse<T>(
       success:json['success'] as bool,
